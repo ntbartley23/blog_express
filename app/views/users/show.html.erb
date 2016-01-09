@@ -1,2 +1,39 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div class="user_welcome_page">
+
+<h1>Hello <%= @user.fname %></h1> 
+
+
+</div>
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @user.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @user.lname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+ <strong>Posts associated with this user:</strong><br><br>
+ <% @user.posts.each do |post| %>
+ <%= post.content %><br>
+
+ <% end %>
+</p>
+<%= link_to 'Create new posts', new_user_post_path(@user) %>
+<%= link_to 'Edit', edit_user_path(@user) %> 
+<%= link_to 'Back', users_path %>
+
+
+

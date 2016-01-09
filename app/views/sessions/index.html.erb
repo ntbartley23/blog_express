@@ -1,0 +1,8 @@
+
+   <%= form_tag '/sessions' do %>
+    <!-- ruby method   :argument1, arg2, hash with key: "value" -->
+    <%= text_field_tag :username, nil, placeholder: "username" %>
+    <%= password_field_tag :password, nil, placeholder: "password" %>
+    <%= submit_tag "log in" %><%= link_to "sign out", '/logout', method: :delete %>
+    <% end %>
+      
