@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+def index
+  @user = User.all
+end
 
 def new
   @user = User.new

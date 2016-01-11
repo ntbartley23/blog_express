@@ -1,7 +1,24 @@
-
-<p>
+<h1 class="words"><%= @post.user.fname %> 's Post Page</h1> 
+<p class="words">
 	<%= @post.content %>
+	<br/> <br/v>
 
 </p>
+<<style>
+	.words{
+		color: #f3cf1b;
+		font-size: 18px;
+	}
+	#key{
+		border:solid 2px;
+		border-color:#f3cf1b;
+		font-size: 20px;
+	}
+</style>
 
-<%= link_to 'Back', root_path %>
+
+<div id="key">
+
+<%= link_to 'Home', root_path %>
+
+</div>
