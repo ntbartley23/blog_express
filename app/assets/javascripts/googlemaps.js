@@ -36,7 +36,7 @@ $(function() {
 		map: map,
 		icon: companyImage,
 		shadow: companyShadow,
-		title:"Ember",
+		title:"Fashion Pot Pie",
 		zIndex: 3});
 
 	google.maps.event.addListener(companyMarker, 'click', function() {

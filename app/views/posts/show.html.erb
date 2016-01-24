@@ -1,15 +1,26 @@
 <h1 class="words"><%= @post.user.fname %> 's Post Page</h1> 
+<div>
+<h1 class="title">
+<%= @posts.title %></h1>
+
+<p class="date">
+	Submitted <%= time_ago_in_words(@post.created_at) %> Ago
+</p>
+
 <p class="words">
+<h2 class="content">
 	<%= @post.content %>
-	<br/> <br/v>
+	<br/> <br/>
+</h2>	
 
 </p>
-<<style>
+</div>
+<style>
 	.words{
 		color: #f3cf1b;
 		font-size: 18px;
 	}
-	#key{
+	.key{
 		border:solid 2px;
 		border-color:#f3cf1b;
 		font-size: 20px;
@@ -17,8 +28,8 @@
 </style>
 
 
-<div id="key">
+<div class="key">
 
-<%= link_to 'Home', root_path %>
-
+<%= link_to 'Edit Post', edit_user_post %>
+<%= link_to 'Sign Out', root_path %>
 </div>

@@ -1,5 +1,13 @@
-<% @post.each do |post| %>
-<p>
+<body>
+<% @posts.each do |post| %>
+
+<p class="post_wrapper">
+  <h2 class="title">
+  <%= @posts.title  %>
+  </h2>
+  </p>
+  <p class="date"><%= post.created_at.strftime("%b, %d, %y")%></p>
+  <p>
 	<%=post.content %>
 
 </p>
@@ -8,3 +16,39 @@
   <%=post.user.username %>
 <% end %>
 <% end %>
+
+
+
+	<div id="sidebar">
+	<div id="logo">
+		<%= link_to posts_path do %>
+		<%= image_tag "star_smile_about.svg" %>
+		<% end %>
+		</div>
+	</div>
+
+	<ul>
+		<li class="category"> Blog</li>
+		<li><%= link_to "Website", root_path %></li>
+	</ul>
+
+	<ul>
+		<li class="category">Social</li>
+		<li><a href="https://www.facebook.com/nastashia.fuller?fref=ts">Facebook</li>
+		<li><a href="https://www.instagram.com/fashion_pot_pie_/">Instagram</li>
+	</ul>
+	<div>
+	<a class="sign_in"> Admin Login</a>
+	
+
+	<div id="main content">
+		<div id="header">
+			<p>All Posts</p>
+
+			<div class="buttons">
+				<button class="button"><%= link_to "New Post", new_post_path %></button>
+				<button class="button">Log Out</button>
+			</div>
+			</div>
+		</div>
+</body>

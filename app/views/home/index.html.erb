@@ -25,11 +25,11 @@
 
                             <div class="nav-collapse collapse">
                                 <ul class="nav pull-right" id="navigation">
-                                    <li><a data-nav="scroll" href="#/home" class="active">HOME</a></li>
-                                    <li><a data-nav="scroll" href="#/clothing">Clothing</a></li>
-                                    <li><a data-nav="scroll" href="#/Styles">Styles</a></li>
+                                    <li><a data-nav="scroll" href="#home" class="active">HOME</a></li>
+                                    <li><a data-nav="scroll" href="#clothing">Clothing</a></li>
+                                    <li><a data-nav="scroll" href="#Styles">Styles</a></li>
                                     <li><a data-nav="scroll" href="users#index">Blog About It</a></li>
-                                    <li><a data-nav="scroll" href="#/contact">CONTACT</a></li>
+                                    <li><a data-nav="scroll" href="#contact">CONTACT</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -208,26 +208,30 @@
                         </ul>
 
                         <ul class="Styles">
-                            <li class="span4">
+                            <!-- <li class="span4">
                                 <div class="item">
                                     <a href="img/bg7.jpg" class="lightbox_trigger">
-                                        <img src="assets/trech_coat.jpg" alt="" />
+                                        <img src="assets/snow.jpg" alt="" />
                                     </a>
                                     
                                 </div>
-                            </li>
+                            </li> -->
                             <li class="span4">
                                 <div class="item">
                                     <a href="img/all_white.jpg" class="lightbox_trigger">
                                         <img src="assets/movie_jacket.jpg" alt="" />
                                     </a>
+                                    <h3>Thumbnail label</h3>
+                                    <p>Thumbnail caption...</p>
                                 </div>
                             </li>
                             <li class="span4">
                                 <div class="item">
                                     <a href="img/bg9.jpg" class="lightbox_trigger">
                                         <img src="assets/collage_pen.jpg" alt="" />
-                                    
+                                    </a>
+                                     <h3>Thumbnail label</h3>
+                                     <p>Thumbnail caption...</p> 
                                     </div>
                              </li>
                             <li class="span4">
@@ -235,6 +239,8 @@
                                     <a href="img/bg9.jpg" class="lightbox_trigger">
                                         <img src="assets/beyonce.jpg" alt="" />
                                     </a>
+                                    <h3>Thumbnail label</h3>
+                                    <p>Thumbnail caption...</p>
                                 </div>
                             </li>
                         </ul>
@@ -253,7 +259,7 @@
                     <div class="span12 header">
                         <hgroup>
                             <h2>Contact</h2>
-                            <h3>Lorem ipsum dolor site amet</h3>
+                            <h3>Feel free to contact me anytime</h3>
                         </hgroup>
                     </div>
                 </div>
@@ -264,26 +270,28 @@
                                 <!-- googlemaps -->
                                 <div id="map_canvas"></div>
                             </div>
-                            <div class="span6">
-                                <form>
-                                    <fieldset>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <input class="span12" type="text" placeholder="Your Full Name">
-                                            </div>
-                                            <div class="controls">
-                                                <input class="span12" type="text" placeholder="Your Email">
-                                            </div>          
-                                            <div class="controls">
-                                                <input class="span12" type="text" placeholder="Message Subject">
-                                            </div>
-                                            <div class="controls">
-                                                <textarea class="span12" id="textarea" rows="6" placeholder="Your Message"></textarea>
-                                            </div>
-                                            <button class="btn btn-default">Send Message</button>
-                                        </div>
-                                    </fieldset>
-                                </form>
+                 <div class="span6">
+                    <form id="contact-form" role="form">
+                        <div class="ajax-hidden">
+                            <div class="form-group wow fadeInUp controls">
+                                <label class="sr-only" for="c_name">Name</label>
+                                <input type="text" id="c_name" class="form-control span12" name="c_name" placeholder="Name">
+                            </div>
+
+                         <div class="form-group wow fadeInUp controls" data-wow-delay=".1s">
+                                <label class="sr-only" for="c_email">Email address</label>
+                                <input type="email" id="c_email" class="form-control span12" name="c_email" placeholder="E-mail">
+                            </div>
+
+                            <div class="form-group wow fadeInUp controls" data-wow-delay=".2"s>
+                             <textarea class="form-control span12" id="c_message" name="c_message" rows="7" placeholder="Your message"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-block btn-custom-2 wow fadeInUp" data-wow-delay=".3s">Send it
+                            </button>
+                        </div
+                        <div class="ajax-response"></div>
+                    </form>
                             </div>
                         </div>
                 </div>
@@ -292,18 +300,36 @@
     </section>
 
     <!-- ligthbox -->
-    <div style="display: none;" id="lightbox"><img id="bigimg" src="" /></div>
+    <div style="display: none;" id="lightbox"><img id="bigimg" src="assets/snow.jpg" alt="" /></div>
 
 <!-- scripts -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/signals.min.js"></script>
-    <script type="text/javascript" src="js/crossroads.min.js"></script>
-    <script type="text/javascript" src="js/hasher.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="js/googlemaps.js"></script>
-    <script type="text/javascript" src="js/theme.js"></script>
 
+<?php
 
+    // Contact
+    $to = 'NastashiaFuller@gmail.com';
+    $subject = 'Subject here...';
+
+    if(isset($_POST['c_name']) && isset($_POST['c_email']) && isset($_POST['c_message'])){
+        $name    = $_POST['c_name'];
+        $from    = $_POST['c_email'];
+        $message = $_POST['c_message'];
+
+        if (mail($to, $subject, $message, $from)) {
+            $result = array(
+                'message' => 'Thanks for contacting us!',
+                'sendstatus' => 1
+                );
+            echo json_encode($result);
+        } else {
+            $result = array(
+                'message' => 'Sorry, something is wrong',
+                'sendstatus' => 1
+                );
+            echo json_encode($result);
+        }
+    }
+
+?>
 </html>

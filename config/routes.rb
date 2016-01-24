@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-root 'home#index'
+root "home#index"
+resources :posts
+
   
     resources :users do
     resources :sessions
-    resources :posts
+    
   end
   
 

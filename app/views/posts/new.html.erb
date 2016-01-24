@@ -1,8 +1,14 @@
 <div class="words">
-<%= form_for @post, :url => {:action => "create"} do |f| %>
+<%= form_for @posts, :url do |f| %>
+<p>
 	<%= f.label :title %>
 	<%= f.text_field :title %>
+</p>
+<p>
+	<%= f.label :body %>
 	<%= f.text_area :content %>
+</p>
+
 	<%= f.submit %>
 <% end %>
 

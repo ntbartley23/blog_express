@@ -1,10 +1,35 @@
-
-<body>
+<h1 class="words">
+	Welcome the Fashion Pot Pie Blog Page!!
+	<br/>
+</h1>
+<body class="words">
 <button type="button"> 
-<%=link_to('Sign In Here!', users_path) %></button>
-<button type="button">
-<%=link_to('Register Here!', new_user_path) %></button>
+<h3 class="words">('Sign In Below!!) </h3>
+<%= form_tag "/users/sign_in" do %>
+<%=label_tag :username %>
+<%=text_field_tag :username %>
+<%=label_tag :password %>
+<%= password_field_tag :password %>
+<br/>
+<br/>
 
+<%=submit_tag %>
+
+<% end %>
+
+<button type="button">
+<%=link_to('New to the Blog, Register Here!', new_user_path) %></button>
+
+
+<div>
+	<img src="assets/flower_design.jpg" alt="" />
+</div>
 </body>
 </html>
 
+<style>
+	.words{
+		color: #f3cf1b;
+		font-size: 22px;
+	}
+</style>
